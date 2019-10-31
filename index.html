@@ -19,7 +19,7 @@ if (navigator.geolocation){
         function googleMapIt(p){
             var detalle='latitud:' +p.coords.latitude + 'longitud:' +p.coords.longitude;
             console.log('te encuentras aproximadamente ahora mismo en las coordenadas:' +detalle);
-            var map = 'http://maps.google.com/maps?&z=15&output=embed&ll=' +p.coords.latitude+','+p.coords.longitude;
+            var map = 'https://maps.google.com/maps?&z=15&output=embed&ll=' +p.coords.latitude+','+p.coords.longitude;
             document.getElementById('geoMap').src=map;
         }
         function gestionaErrores(err){
@@ -141,7 +141,7 @@ if (navigator.geolocation){
     </header>
     <nav>
         <ul>
-           <li>Música</li>
+           <li> <a href="musica.html">Música</a></li>
            <li>Juegos</li>
            <li>Deportes</li>
            <li>Contáctanos</li>
@@ -209,7 +209,7 @@ if (navigator.geolocation){
                     ingresa tu teléfono: <input type= "tel"> <br>
                     que quieres buscar: <input type= "search"> <br>
                     nivel de estudios: <input type= "text" list="estudios" requiered> <br>
-                        <datalist id:"estudios">
+                        <datalist id="estudios">
                             <option label="Back" value="Bachillerato/Preparatoria">
                             <option label="Lic" value="Licenciatura">
                             <option label="Ing" value= "Ingeniería">
@@ -276,7 +276,7 @@ if (navigator.geolocation){
             </article>
     </section>
     <footer> 
-        <h5 itemscope itemtype: ""> Copyright 2019 por <span itemprop:"givenName"> Lledías Garduño José Carlos</span>, <span itemprop:"jobTitle"> Desarrollador Web </span> <span itemprop:"worksFor">en KMMX </span>,<span itemprop:"parent"> hijo de Graciela Garduño.</span></h5>
+        <h5 itemscope itemtype= ""> Copyright 2019 por <span itemprop="givenName"> Lledías Garduño José Carlos</span>, <span itemprop:"jobTitle"> Desarrollador Web </span> <span itemprop:"worksFor">en KMMX </span>,<span itemprop:"parent"> hijo de Graciela Garduño.</span></h5>
     </footer>
 </body>
 </html>

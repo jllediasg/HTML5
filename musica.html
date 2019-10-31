@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Warren Sánchez Studios</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script>
+       
+       var esfera;
+            var w;
+            var h;
+            probandoOrientacion();
+            function probandoOrientacion(){
+                if(!window.requestAnimationFrame){
+                    window.requestAnimationFrame = (function(){
+                        return window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback,element){
+                            window.setTimeout(callback,1000/60);
+                        };
+                    })();
+                }
+            }
+            function detonaEsfera(){
+                esfera = document.getElementById("esfera");
+                w = innerWidth;
+                h = innerHeight;
+                esfera.style.left = (w/2)-50 + "px";
+                esfera.style.top = (h/2)-50 + "px";
+                esfera.velocity = {x:0, y:0};
+                esfera.position = {x:0, y:0};
+                if(window.DeviceOrientationEvent){
+                    window.addEventListener("deviceorientation", function(event){
+                        esfera.velocity.y = Math.round(event.beta);
+                        esfera.velocity.x = Math.round(event.gamma);
+                    })
+                } 
+                else{
+                    alert("Prueba en otro dispositivo, el dispositivo actual no soporta orientación")
+                }
+                update();
+            }
+            function update(){
+                var mueveX = esfera.velocity.x;
+                var mueveY = esfera.velocity.y;
+                esfera.position.x += esfera.velocity.x;
+                esfera.position.y += esfera.velocity.y;
+                if(esfera.position.x > (w-100) && esfera.velocity.x > 0){
+                    esfera.position.x = w-100;
+                }
+                if(esfera.position.x < 0 && esfera.velocity.x <0){
+                    esfera.position.x = 0;
+                }
+                if(esfera.position.y > (h-100) && esfera.velocity.y > 0){
+                    esfera.position.y = h-100;
+                }
+                if(esfera.position.y < 0 && esfera.velocity.y <0){
+                    esfera.position.y = 0;
+                }
+                esfera.style.top = esfera.position.y + "px";
+                esfera.style.left = esfera.position.x + "px";
+                requestAnimationFrame(update);
+            }
+
+
+    </script>
+</head>
+<body onload="detonaEsfera()">
+    
+    <header>
+        <h1>Esto es Warren Sánchez Studios</h1>
+    </header>
+    <nav>
+        <ul>
+           <li><a href="musica.html">Música </a></li>
+           <li>Juegos</li>
+           <li>Deportes</li>
+           <li>Contáctanos</li>
+        </ul>
+    </nav>
+    <aside>
+        <details>
+            <summary>top de canciones</summary>
+            <ul>
+                <li>TOP 1</li>
+                <li>TOP 2</li>
+                <li>TOP 3</li>
+            </ul>
+        </details>
+        <ul>
+            <li>Instagram</li>
+            <li>Facebook</li>
+            <li>Ask.fm</li>
+        </ul>
+    </aside>
+    <section>
+        <h2>Bienvenido, querido Warro, a mi pequeño mundo.</h2>
+        <article>
+            <h3>Probando device orientation</h3>
+                <div id="esfera"> </div>
+        </article>
+    </section>
+    <footer> 
+        <h5 itemscope itemtype= ""> Copyright 2019 por <span itemprop="givenName"> Lledías Garduño José Carlos</span>, <span itemprop="jobTitle"> Desarrollador Web </span> <span itemprop="worksFor">en KMMX </span>,<span itemprop="parent"> hijo de Graciela Garduño.</span></h5>
+    </footer>
+</body>
+</html>

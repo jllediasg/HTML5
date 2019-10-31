@@ -129,7 +129,7 @@ h5,p{
     -webkit-animation: miAnimación, 15s;
 }
 
-@-webkit-keyframes miAnimación{
+@-webkit-keyframes miAnimacion{
     0%{
         background-color:blue;
         left:0px;
@@ -156,7 +156,7 @@ h5,p{
         transform:skewX(50deg);
     }
 }
-@-moz-keyframes miAnimación{
+@-moz-keyframes miAnimacion{
     0%{
         color:blue;
         left:0px;
@@ -181,5 +181,16 @@ h5,p{
         left:0px;
         top:0pc;
         box-shadow:30px 30px 10px
+        }
 }
+
+#esfera{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all;
+    -moz-transition: all;
+    -webkit-transition: all;
 }
