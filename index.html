@@ -8,6 +8,36 @@
     <link ref="stylesheet" href="./css/styles.css">
 
     <script>
+
+if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(googleMapIt, gestionaErrores);
+        }
+            else{
+            alert('Tu browser es piñata y no acepta geolocation');
+            }
+        
+        function googleMapIt(p){
+            var detalle='latitud:' +p.coords.latitude + 'longitud:' +p.coords.longitude;
+            console.log('te encuentras aproximadamente ahora mismo en las coordenadas:' +detalle);
+            var map = 'http://maps.google.com/maps?&z=15&output=embed&ll=' +p.coords.latitude+','+p.coords.longitude;
+            document.getElementById('geoMap').src=map;
+        }
+        function gestionaErrores(err){
+            if (err.code=0){
+                alert('error desconocido');
+            }
+            if (err.code=1){
+                alert('No haz permitido compartir tu ubicación');
+            }
+            if (err.code=2){
+                alert('No es posible leer tu ubicación, quizás no está esto en un sitio seguro');
+            }
+            if (err.code=3){
+                alert('Timeout... Tiempo de espera agotado, tu internet es piñata o estás en las montañas');
+            }
+            
+        }
+
         var contador = 0;
         var ini;
         function almacena(){
@@ -87,9 +117,7 @@
                 }
             
 
-                
-
-        }
+                        
         function retornarLienzo(x){
             var elCanvas = document.getElementById(x);
             if(elCanvas.getContext){
@@ -100,6 +128,9 @@
                 return false
             }
         }
+
+    }
+
     
     </script>
 </head>
@@ -232,6 +263,16 @@
                         <input type="button" value="guardar dato" onclick="almacena_session();">
                         <input type="button" value="traer el dato de vuelta" onclick="obtiene_session();">
                         <input type="button" value="borrar dato" onclick="borra_session();">
+            </article>
+            <article>
+                    <h3>Probando animación con CSS3</h3>
+                    <div id="cuadoAnimado">
+                        <p>¡Me estoy animando!¡Yay!</p>
+                    </div>
+            </article>
+            <article>
+                    <h3>Probando Geolocalización con maps</h3>
+                    <iframe id="geoMap" width="300" height="500" frameborder="no" src=""></iframe>
             </article>
     </section>
     <footer> 
