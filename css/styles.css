@@ -1,0 +1,120 @@
+
+body{ 
+    width: 900px;
+    height: auto;
+    margin: 0 auto;
+    background-image: url(./images/1.png), url(./images/2.png);
+    background-color: rgba rgb(214, 71, 71)
+}
+
+header{
+    width: 900px;
+    height: 190px;
+    color: 10,300;
+    background-image: url(./images/2.png);
+    background-size:100%;
+}
+
+nav{
+    width:900px;
+    height:50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding-top: 5px;
+}
+
+nav ul li{
+    display:inline;
+    list-style-type: none;
+    margin-right: 100px;
+}
+
+aside{
+    width:230px;
+    background-color: #cecece;
+    height:900px;
+    float:left;
+}
+
+section{
+    width:670px;
+    height:550;
+    float:left;
+    /* Background gradiante */
+    background: #f3c5bd; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f3c5bd 1%, #ea2803 18%, #ea2803 18%, #e86c57 53%, #ff6600 79%, #c72200 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #f3c5bd 1%,#ea2803 18%,#ea2803 18%,#e86c57 53%,#ff6600 79%,#c72200 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #f3c5bd 1%,#ea2803 18%,#ea2803 18%,#e86c57 53%,#ff6600 79%,#c72200 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3c5bd', endColorstr='#c72200',GradientType=0 ); /* IE6-9 */
+}
+
+article{
+    width:300px;
+    height: 550px;
+    background-color: rgba(255,220,80,0.7);
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-top:15px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: 15px 15px 20px black;
+    transition: all 1.5s;
+}
+
+article:hover{
+    border-radius:80px 80px 10px 10px;
+    box-shadow: -15px -15px -40px red;
+    -webkit-transform: scale(1.1);
+    transform: rotate(360deg)
+}
+
+footer{
+    background-color: #FFF;
+    border-radius:25px 0px 45px 0px;
+    width: 900px;
+    height: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    padding-bottom: 20px;
+}
+
+@font-face{
+    font-family: miFuente1;
+    src: url(../fonts/font1.ttf);
+}
+@font-face{
+    font-family: miFuente2;
+    src: url(../fonts/font2.ttf);
+}
+@font-face{
+    font-family: miFuente3;
+    src: url(../fonts/font3.ttf);
+}
+@font-face{
+    font-family: miFuente4;
+    src: url(../fonts/font4.ttf);
+}
+
+h1{
+    font-family:miFuente1;
+    text-shadow: 5px 7px 10px black;
+    font-size: 4.375em; 
+}
+
+h2{
+    font-family:miFuente2;
+}
+
+h3{
+    font-family:miFuente3;
+}
+
+h5,p{
+    font-family:miFuente4;
+}
+
+#videoMask{
+    mask:url(../images/text.svg);
+}

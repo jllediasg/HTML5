@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Warren Sánchez Studios</title>
+    <link ref="stylesheet" href="./css/styles.css">
+
+    <script>
+        var contador = 0;
+        var ini;
+        function almacena(){
+            var texto=document.getElementById("datos").value;
+            localStorage.setItem("datos",texto);
+        }
+
+        function obtiene(){
+            document.getElementById("datos").value=localStorage.getItem("datos");
+        }
+
+        function borrar(){
+            localStorage.removeItem("datos");
+            document.getElementById("datos").value="datos borrados exitosamente"
+        }
+
+        function almacena_session(){
+            var texto_session=document.getElementById("datos_session").value;
+            sessionStorage.setItem("datos_session",texto_session);
+        }
+
+        function obtiene_session(){
+            document.getElementById("datos_session").value=sessionStorage.getItem("datos_session");
+        }
+
+        function borrar_session(){
+            sessionStorage.removeItem("datos_session");
+            document.getElementById("datos_session").value="datos borrados exitosamente"
+        }
+
+        function cargador(){
+            var lienzo = document.getElementById("lienzo");
+            var lienzo1 = lienzo.getContext('2d');
+            lienzo1.fillStyle="rgba(0,0,200,0.6)";
+            lienzo1.fillRect(45,70,150,100);
+            lienzo1.beginPath();
+            lienzo1.fillStyle="rgba(200,0,0,0.6)";
+            lienzo1.strokeStyle="rgba(0,200,0,0.8)";
+            lienzo1.moveTo(200,150);
+            lienzo1.lineTo(300,150);
+            lienzo1.lineTo(200,400);
+            lienzo1.closePath();
+            lienzo1.fill();
+            lienzo1.stroke();
+            lienzo1.fillStyle="rgba(100,100,255,0.6)";
+            lienzo1.font='italic 40px sans-serif';
+            lienzo1.fillText("¡Hola Mundo Cruel!", 20,350);
+
+            iniciaAnim();
+        }
+
+        function iniciaAnim(){
+            ini = setInterval(dibujar, 20);
+        }
+
+        function dibujar(){
+            var elLienzo = retornarLienzo("miLienzo");
+            if(elLienzo){
+                elLienzo.shadowOffsetX=30;
+                elLienzo.shadowOffsetY=30;
+                elLienzo.shadowBlur=100*contador*.5;
+                elLienzo.shadowColor="rgba("+contador*.25+",150,100,0.5";
+                elLienzo.fillStyle="rgba(200,"+contador*.25+",100,0.8)";
+                elLienzo.fillRect(-230,-250,250,150);
+                elLienzo.rotate(contador*Math.PI/180);
+                contador++;
+                    if (contador == 500){
+                        alert('el contador ha llegado a 500');
+                        
+                        
+                    }
+                    else if(contador==1000){
+                        alert('contador deteniéndose en 1000');
+                        clearInterval(ini);
+
+                    } 
+                }
+            
+
+                
+
+        }
+        function retornarLienzo(x){
+            var elCanvas = document.getElementById(x);
+            if(elCanvas.getContext){
+                var elLienzo=elCanvas.getContext('2d');
+                return elLienzo;
+            }
+            else{
+                return false
+            }
+        }
+    
+    </script>
+</head>
+<body onload="cargador()">
+    <styles> <link rel="stylesheet" href="./css/styles.css"> </styles>
+    <header>
+        <h1>Esto es Warren Sánchez Studios</h1>
+    </header>
+    <nav>
+        <ul>
+           <li>Música</li>
+           <li>Juegos</li>
+           <li>Deportes</li>
+           <li>Contáctanos</li>
+        </ul>
+    </nav>
+    <aside>
+        <details>
+            <summary>top de canciones</summary>
+            <ul>
+                <li>TOP 1</li>
+                <li>TOP 2</li>
+                <li>TOP 3</li>
+            </ul>
+        </details>
+        <ul>
+            <li>Instagram</li>
+            <li>Facebook</li>
+            <li>Ask.fm</li>
+        </ul>
+    </aside>
+    <section>
+        <h2>Bienvenido, querido Warro, a mi pequeño mundo.</h2>
+        <article>
+            <h3>Volleyball</h3>
+            <h4>Segunda división <time datetime="2013-10-25">Octubre 2013</time></h4>
+            <p>¿Qué es Lorem Ipsum?
+                    Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
+                                                    
+            </p>
+        </article>
+        <article>
+            <h3>Overwatch</h3>
+            <h4>Rumbo al Grand Master <time datetime="2017-06-25">Junio 2017</time></h4>
+            <p> ¿Por qué lo usamos?
+                    Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí, contenido aquí". Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de "Lorem Ipsum" va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).
+                    
+             </p>
+        </article>
+        <article>
+            <h3>Probando audio y video</h3>
+                <h4>Probando Audio, vamos a Rockear </h4>
+                    <audio controls >
+                        <Source src="./media/son2.mp3" type="audio/mp3"></audio>
+                <h4>Prueba de video, Seguimos rockeando </h4> 
+                    <video width=300px controls >
+                        <source src="./media/video.mp4" type="video/mp4"></video>
+                        <source src="./media/video.ogv" type="video/ogv"></video>
+                        <source src="./media/video.webm" type="video/webm"></video>
+                    </video>
+        </article>
+        <article>
+                <h3>Probando nuevos input types</h3>
+                <form method="POST" action="#">
+                    Nombre:<input type="text" placeholder= "por ej. Juan Pérez Pérez"> <br>
+                    Correo:<input type="email" placeholder="correo@dominio.com"> <br>
+                    URL de LinkedIn: <input type="url" placeholder= "http://linkedin.com/user"> <br>
+                    Edad <input type="number" min="18" max="60" value="20" step="2"> <br>
+                    Ingresa tu nivel de inglés: <input type="range" min="0" max= "100" step= "10" value="50"> <br>
+                    Fecha de nacimiento: <input type="date"> <br>
+                    Mes de vacaciones: <input type= "month"> <br>
+                    Semana de vacaciones extra: <input type= "week"> <br>
+                    Hora de entrada: <input type="time"> <br>
+                    color de camiseta: <input type= "color"> <br>
+                    Define tu contraseña: <input type= "password"> <br>
+                    ingresa tu teléfono: <input type= "tel"> <br>
+                    que quieres buscar: <input type= "search"> <br>
+                    nivel de estudios: <input type= "text" list="estudios" requiered> <br>
+                        <datalist id:"estudios">
+                            <option label="Back" value="Bachillerato/Preparatoria">
+                            <option label="Lic" value="Licenciatura">
+                            <option label="Ing" value= "Ingeniería">
+                            <option label="Mto" value= "Maestría">
+                            <option label="Dr" value= "Doctorado">  
+                        </datalist>
+                    <input type="submit" value="Enviar datos"> <br>
+                </form>                
+            </article>
+            <article>
+                <h3>Probando formas básicas con SVG</h3>
+                <svg width="300" height="550" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="50" y1="50" x2="300" y2="450" style="stroke:yellow; stroke-width:7;"/>
+                    <circle cx="100" cy="150" r="80" fill="red"/>
+                    <rect widht="200" height="100" fill="blue"/>
+                    <ellipse cx="250" cy="290" rx="290" ry="100" fill=green/>
+                </svg>
+                
+            </article>
+            <article>
+                <h3>Probando video enmascarado por SVG</h3>
+                <video id="videoMask" width=300px controls>
+                        <source src="./media/video.mp4" type="video/mp4"></video>
+                        <source src="./media/video.ogv" type="video/ogv"></video>
+                        <source src="./media/video.webm" type="video/webm"></video>
+                </video>
+            </article>
+            <article>
+                <h3>Probando formas básicas de dibujo con Canvas</h3>
+                <canvas widht="300" height="550" id="lienzo">
+                    Este canvas no es visible para tu browser, intenta en otro
+                </canvas>
+            </article>
+            <article>
+                    <h3>Probando animación en Canvas</h3>
+                    <canvas widht="300" height="550" id="miLienzo">
+                        Este canvas no es visible para tu browser, intenta en otro
+                    </canvas>
+            </article>
+            <article>
+                    <h3>Probando almacenamiento local</h3>
+                    <h4>prueba de local storage</h4>
+                        ingresa un dato en el siguiente input: 
+                        <input type="text" id="datos" placeholder="mi dato a guardar" autofocus><br>
+                        <input type="button" value="guardar dato" onclick="almacena();">
+                        <input type="button" value="traer el dato de vuelta" onclick="obtiene();">
+                        <input type="button" value="borrar dato" onclick="borra();">
+
+                    <h4>prueba de session storage</h4>
+                        <input type="text" id="datos_session" placeholder="mi dato a guardar" autofocus><br>
+                        <input type="button" value="guardar dato" onclick="almacena_session();">
+                        <input type="button" value="traer el dato de vuelta" onclick="obtiene_session();">
+                        <input type="button" value="borrar dato" onclick="borra_session();">
+            </article>
+    </section>
+    <footer> 
+        <h5 itemscope itemtype: ""> Copyright 2019 por <span itemprop:"givenName"> Lledías Garduño José Carlos</span>, <span itemprop:"jobTitle"> Desarrollador Web </span> <span itemprop:"worksFor">en KMMX </span>,<span itemprop:"parent"> hijo de Graciela Garduño.</span></h5>
+    </footer>
+</body>
+</html>
